@@ -1,0 +1,121 @@
+1586036113542,count_duplicates,focus.projectionBox.focus.custom,count = inp??
+1586036113543,count_duplicates,focus.example.0.focus,'aabbcde'
+1586036134773,count_duplicates,example.1.include,{'a': 2, 'b': 2, 'c': 1, 'd': 1, 'e': 1}
+1586036134776,count_duplicates,focus.projectionBox.exit
+1586036134929,count_duplicates,synth.start.0.11.1
+1586036134961,count_duplicates,example.all.reset
+1586036135648,count_duplicates,synth.stdout,[0.156] count = {var: inp.count(var) for var in inp}
+1586036135673,count_duplicates,synth.end.0.0,count = {var: inp.count(var) for var in inp}
+1586036147829,count_duplicates,focus.projectionBox.focus.custom,filter = ??
+1586036147829,count_duplicates,focus.example.0.focus,0
+1586036149391,count_duplicates,focus.projectionBox.exit
+1586036149404,count_duplicates,example.all.reset
+1586036151201,count_duplicates,focus.projectionBox.focus.custom,filter = count??
+1586036151202,count_duplicates,focus.example.0.focus,{'a': 2, 'b': 2, 'c': 1, 'd': 1, 'e': 1}
+1586036157246,count_duplicates,example.1.include,{'a': 2, b: 2}
+1586036157249,count_duplicates,focus.projectionBox.exit
+1586036157441,count_duplicates,synth.start.1.12.1
+1586036157488,count_duplicates,example.all.reset
+1586036157991,count_duplicates,synth.sterr,java.util.NoSuchElementException: next on empty iterator
+1586036157992,count_duplicates,synth.sterr,	at scala.collection.Iterator$$anon$19.next(Iterator.scala:954)\n	at scala.collection.Iterator$$anon$19.next(Iterator.scala:952)\n	at scala.collection.IndexedSeqView$IndexedSeqViewIterator.next(IndexedSeqView.scala:60)\n	at scala.collection.IterableOps.head(Iterable.scala:219)\n	at scala.collection.IterableOps.head$(Iterable.scala:219)\n	at scala.collection.AbstractIterable.head(Iterable.scala:921)\n	at sygus.InputParser.$anonfun$visitDictorsetmaker$5(InputParser.scala:103)\n	at scala.collection.StrictOptimizedIterableOps.strictOptimizedMap(StrictOptimizedIterableOps.scala:100)\n	at scala.collection.StrictOptimizedIterableOps.strictOptimizedMap$(StrictOptimizedIterableOps.scala:97)\n	at scala.collection.immutable.HashMap.strictOptimizedMap(HashMap.scala:38)\n	at scala.collection.StrictOptimizedMapOps.map(StrictOptimizedMapOps.scala:30)\n	at scala.collection.StrictOptimizedMapOps.map$(StrictOptimizedMapOps.scala:29)\n	at scala.collection.immutable.HashMap.map(HashMap.scala:38)\n	at sygus.InputParser.visitDictorsetmaker(InputParser.scala:103)\n	at sygus.InputParser.visitDictorsetmaker(InputParser.scala:9)\n	at sygus.Python3Parser$DictorsetmakerContext.accept(Python3Parser.java:6978)\n	at sygus.InputParser.visitAtom(InputParser.scala:63)\n	at sygus.InputParser.visitAtom(InputParser.scala:9)\n	at sygus.Python3Parser$AtomContext.accept(Python3Parser.java:6042)\n	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)\n	at sygus.Python3BaseVisitor.visitAtom_expr(Python3BaseVisitor.java:489)\n	at sygus.Python3Parser$Atom_exprContext.accept(Python3Parser.java:5951)\n	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)\n	at sygus.Python3BaseVisitor.visitPower(Python3BaseVisitor.java:482)\n	at sygus.Python3Parser$PowerContext.accept(Python3Parser.java:5887)\n	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)
+1586036157992,count_duplicates,synth.sterr,	at sygus.InputParser.visitFactor(InputParser.scala:133)\n	at sygus.InputParser.visitFactor(InputParser.scala:9)\n	at sygus.Python3Parser$FactorContext.accept(Python3Parser.java:5801)\n	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)\n	at sygus.InputParser.visitTerm(InputParser.scala:31)\n	at sygus.InputParser.visitTerm(InputParser.scala:9)\n	at sygus.Python3Parser$TermContext.accept(Python3Parser.java:5726)\n	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)\n	at sygus.InputParser.visitArith_expr(InputParser.scala:25)\n	at sygus.InputParser.visitArith_expr(InputParser.scala:9)\n	at sygus.Python3Parser$Arith_exprContext.accept(Python3Parser.java:5634)\n	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)\n	at sygus.Python3BaseVisitor.visitShift_expr(Python3BaseVisitor.java:454)\n	at sygus.Python3Parser$Shift_exprContext.accept(Python3Parser.java:5554)\n	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)\n	at sygus.Python3BaseVisitor.visitAnd_expr(Python3BaseVisitor.java:447)\n	at sygus.Python3Parser$And_exprContext.accept(Python3Parser.java:5482)\n	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)
+1586036157993,count_duplicates,synth.sterr,	at sygus.Python3BaseVisitor.visitXor_expr(Python3BaseVisitor.java:440)\n	at sygus.Python3Parser$Xor_exprContext.accept(Python3Parser.java:5414)\n	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)\n	at sygus.Python3BaseVisitor.visitExpr(Python3BaseVisitor.java:433)\n	at sygus.Python3Parser$ExprContext.accept(Python3Parser.java:5346)\n	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:18)\n	at sygus.InputParser.parse(InputParser.scala:19)\n	at sygus.PythonPBETask$.$anonfun$cleanupInputs$3(SynthesisTask.scala:63)\n	at scala.collection.StrictOptimizedIterableOps.strictOptimizedMap(StrictOptimizedIterableOps.scala:100)\n	at scala.collection.StrictOptimizedIterableOps.strictOptimizedMap$(StrictOptimizedIterableOps.scala:97)\n	at scala.collection.immutable.HashMap.strictOptimizedMap(HashMap.scala:38)\n	at scala.collection.StrictOptimizedMapOps.map(StrictOptimizedMapOps.scala:30)\n	at scala.collection.StrictOptimizedMapOps.map$(StrictOptimizedMapOps.scala:29)\n	at scala.collection.immutable.HashMap.map(HashMap.scala:38)\n	at sygus.PythonPBETask$.cleanupInputs(SynthesisTask.scala:63)\n	at sygus.PythonPBETask$.$anonfun$fromString$1(SynthesisTask.scala:78)\n	at scala.collection.immutable.List.map(List.scala:219)
+1586036157993,count_duplicates,synth.sterr,\n	at sygus.PythonPBETask$.fromString(SynthesisTask.scala:78)\n	at sygus.Main$.synthesize(Main.scala:22)\n	at sygus.Main$.delayedEndpoint$sygus$Main$1(Main.scala:70)\n	at sygus.Main$delayedInit$body.apply(Main.scala:13)\n	at scala.Function0.apply$mcV$sp(Function0.scala:39)\n	at scala.Function0.apply$mcV$sp$(Function0.scala:39)\n	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)\n	at scala.App.$anonfun$main$1(App.scala:73)\n	at scala.App.$anonfun$main$1$adapted(App.scala:73)\n	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:553)\n	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:551)\n	at scala.collection.AbstractIterable.foreach(Iterable.scala:921)\n	at scala.App.main(App.scala:73)\n	at scala.App.main$(App.scala:71)\n	at sygus.Main$.main(Main.scala:13)
+1586036157994,count_duplicates,synth.sterr,	at sygus.Main.main(Main.scala)\n	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n	at java.lang.reflect.Method.invoke(Method.java:498)\n	at scala.reflect.internal.util.ScalaClassLoader.$anonfun$run$2(ScalaClassLoader.scala:105)\n	at scala.reflect.internal.util.ScalaClassLoader.asContext(ScalaClassLoader.scala:40)\n	at scala.reflect.internal.util.ScalaClassLoader.asContext$(ScalaClassLoader.scala:37)\n	at scala.reflect.internal.util.ScalaClassLoader$URLClassLoader.asContext(ScalaClassLoader.scala:130)\n	at scala.reflect.internal.util.ScalaClassLoader.run(ScalaClassLoader.scala:105)\n	at scala.reflect.internal.util.ScalaClassLoader.run$(ScalaClassLoader.scala:97)\n	at scala.reflect.internal.util.ScalaClassLoader$URLClassLoader.run(ScalaClassLoader.scala:130)\n	at scala.tools.nsc.CommonRunner.run(ObjectRunner.scala:29)\n	at scala.tools.nsc.CommonRunner.run$(ObjectRunner.scala:28)\n	at scala.tools.nsc.JarRunner$.run(MainGenericRunner.scala:17)
+1586036157994,count_duplicates,synth.sterr,	at scala.tools.nsc.CommonRunner.runAndCatch(ObjectRunner.scala:35)\n	at scala.tools.nsc.CommonRunner.runAndCatch$(ObjectRunner.scala:34)\n	at scala.tools.nsc.JarRunner$.runAndCatch(MainGenericRunner.scala:17)\n	at scala.tools.nsc.JarRunner$.runJar(MainGenericRunner.scala:29)\n	at scala.tools.nsc.MainGenericRunner.runTarget$1(MainGenericRunner.scala:76)\n	at scala.tools.nsc.MainGenericRunner.run$1(MainGenericRunner.scala:91)\n	at scala.tools.nsc.MainGenericRunner.process(MainGenericRunner.scala:103)\n	at scala.tools.nsc.MainGenericRunner$.main(MainGenericRunner.scala:108)\n	at scala.tools.nsc.MainGenericRunner.main(MainGenericRunner.scala)
+1586036158008,count_duplicates,synth.end.1.1
+1586036160856,count_duplicates,focus.projectionBox.focus.custom,filter = count??
+1586036160857,count_duplicates,focus.example.0.focus,{'a': 2, 'b': 2, 'c': 1, 'd': 1, 'e': 1}
+1586036165771,count_duplicates,example.1.include,{'a': 2, 'b': 2}
+1586036165780,count_duplicates,focus.projectionBox.exit
+1586036165964,count_duplicates,synth.start.2.12.1
+1586036165992,count_duplicates,example.all.reset
+1586036166735,count_duplicates,synth.stdout,[0.180] filter = {key: count[key] for key in count if inp.count(key) > 1}
+1586036166761,count_duplicates,synth.end.2.0,filter = {key: count[key] for key in count if inp.count(key) > 1}
+1586036170659,count_duplicates,focus.projectionBox.focus.custom,chars = ??
+1586036170660,count_duplicates,focus.example.0.focus,0
+1586036180558,count_duplicates,example.1.include,['a', 'b', 'c', 'd', 'e']
+1586036180566,count_duplicates,focus.projectionBox.exit
+1586036180751,count_duplicates,synth.start.3.13.1
+1586036180816,count_duplicates,example.all.reset
+1586036186589,count_duplicates,synth.stdout,[-0.001] None
+1586036186599,count_duplicates,synth.end.3.0,None
+1586036212861,count_duplicates,focus.projectionBox.focus.custom,l = ??
+1586036212862,count_duplicates,focus.example.0.focus,0
+1586036217699,count_duplicates,focus.projectionBox.exit
+1586036217713,count_duplicates,example.all.reset
+1586036224686,count_duplicates,focus.projectionBox.focus.custom,l = ??
+1586036224687,count_duplicates,focus.example.0.focus,0
+1586036241412,count_duplicates,example.1.include,[0, 2, 4, 6]
+1586036241415,count_duplicates,focus.projectionBox.exit
+1586036241606,count_duplicates,synth.start.4.14.1
+1586036241653,count_duplicates,example.all.reset
+1586036247332,count_duplicates,synth.stdout,[-0.001] None
+1586036247342,count_duplicates,synth.end.4.0,None
+1586036253829,count_duplicates,focus.projectionBox.focus.custom,l = 0??
+1586036253829,count_duplicates,focus.example.0.focus,0
+1586036255036,count_duplicates,focus.projectionBox.exit
+1586036255038,count_duplicates,example.1.change,0,\n
+1586036255043,count_duplicates,example.1.include,\n
+1586036255053,count_duplicates,example.all.reset
+1586036256405,count_duplicates,focus.projectionBox.focus.custom,l = r??
+1586036256406,count_duplicates,focus.example.0.focus,[0, 1, 2, 3, 4, 5, 6]
+1586036267616,count_duplicates,example.1.include,[0, 2, 4, 6]
+1586036267625,count_duplicates,focus.projectionBox.exit
+1586036267808,count_duplicates,synth.start.5.14.1
+1586036267839,count_duplicates,example.all.reset
+1586036273662,count_duplicates,synth.stdout,[-0.001] None
+1586036273673,count_duplicates,synth.end.5.0,None
+1586036287881,count_duplicates,focus.projectionBox.focus.custom,l = ??
+1586036287882,count_duplicates,focus.example.0.focus,0
+1586036294833,count_duplicates,example.1.include,[1, 3, 5]
+1586036294842,count_duplicates,focus.projectionBox.exit
+1586036295027,count_duplicates,synth.start.6.14.1
+1586036295061,count_duplicates,example.all.reset
+1586036300639,count_duplicates,synth.stdout,[-0.001] None
+1586036300649,count_duplicates,synth.end.6.0,None
+1586036303296,count_duplicates,focus.projectionBox.focus.custom,l = ??
+1586036303297,count_duplicates,focus.example.0.focus,0
+1586036314744,count_duplicates,example.1.include,"abce"
+1586036314747,count_duplicates,focus.projectionBox.exit
+1586036314940,count_duplicates,synth.start.7.14.1
+1586036315010,count_duplicates,example.all.reset
+1586036315625,count_duplicates,synth.stdout,[0.072] l = inp[::2]
+1586036315650,count_duplicates,synth.end.7.0,l = inp[::2]
+1586036348688,count_duplicates,focus.projectionBox.focus.custom,rs = ??
+1586036348688,count_duplicates,focus.example.0.focus,0
+1586036349091,count_duplicates,example.1.include,2
+1586036349099,count_duplicates,focus.projectionBox.exit
+1586036349284,count_duplicates,synth.start.8.14.1
+1586036349353,count_duplicates,example.all.reset
+1586036349923,count_duplicates,synth.sterr,Input not recognized: (x,range(0, 123))
+1586036350034,count_duplicates,synth.stdout,[0.029] rs = len(filter)
+1586036350090,count_duplicates,synth.end.8.0,rs = len(filter)
+1586036435178,count_duplicates,focus.projectionBox.focus.custom,c = ??
+1586036435180,count_duplicates,focus.example.0.focus,0
+1586036436138,count_duplicates,focus.example.1.blur,2
+1586036436142,count_duplicates,example.1.change,0,2
+1586036436154,count_duplicates,example.1.include,2
+1586036436156,count_duplicates,focus.example.2.focus,0
+1586036436444,count_duplicates,focus.example.2.blur,2
+1586036436447,count_duplicates,example.2.change,0,2
+1586036436457,count_duplicates,example.2.include,2
+1586036436458,count_duplicates,focus.example.3.focus,0
+1586036437136,count_duplicates,focus.example.3.blur,1
+1586036437139,count_duplicates,example.3.change,0,1
+1586036437149,count_duplicates,example.3.include,1
+1586036437150,count_duplicates,focus.example.4.focus,0
+1586036437396,count_duplicates,focus.example.4.blur,1
+1586036437399,count_duplicates,example.4.change,0,1
+1586036437408,count_duplicates,example.4.include,1
+1586036437410,count_duplicates,focus.example.5.focus,0
+1586036437739,count_duplicates,focus.example.5.blur,1
+1586036437742,count_duplicates,example.5.change,0,1
+1586036437752,count_duplicates,example.5.include,1
+1586036437754,count_duplicates,focus.example.1.focus,2
+1586036438254,count_duplicates,example.1.include,2
+1586036438261,count_duplicates,focus.projectionBox.exit
+1586036438455,count_duplicates,synth.start.9.16.5
+1586036438490,count_duplicates,example.all.reset
+1586036439142,count_duplicates,synth.stdout,[0.029] c = inp.count(k)
+1586036439168,count_duplicates,synth.end.9.0,c = inp.count(k)

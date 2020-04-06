@@ -1,0 +1,75 @@
+{
+  "varName": "c",
+  "env": [
+    {
+      "time": 6,
+      "#": "0",
+      "$": "14",
+      "inp": "'aabbcde'",
+      "count": "{'a': 2, 'b': 2, 'c': 1, 'd': 1, 'e': 1}",
+      "filter": "{'a': 2, 'b': 2}",
+      "rs": "2",
+      "k": "'a'",
+      "c": "2",
+      "lineno": 14,
+      "prev_lineno": 15,
+      "next_lineno": 15
+    },
+    {
+      "time": 8,
+      "#": "1",
+      "$": "14",
+      "inp": "'aabbcde'",
+      "count": "{'a': 2, 'b': 2, 'c': 1, 'd': 1, 'e': 1}",
+      "filter": "{'a': 2, 'b': 2}",
+      "rs": "2",
+      "k": "'b'",
+      "c": "2",
+      "lineno": 14,
+      "prev_lineno": 15,
+      "next_lineno": 15
+    },
+    {
+      "time": 10,
+      "#": "2",
+      "$": "14",
+      "inp": "'aabbcde'",
+      "count": "{'a': 2, 'b': 2, 'c': 1, 'd': 1, 'e': 1}",
+      "filter": "{'a': 2, 'b': 2}",
+      "rs": "2",
+      "k": "'c'",
+      "c": "1",
+      "lineno": 14,
+      "prev_lineno": 15,
+      "next_lineno": 15
+    },
+    {
+      "time": 12,
+      "#": "3",
+      "$": "14",
+      "inp": "'aabbcde'",
+      "count": "{'a': 2, 'b': 2, 'c': 1, 'd': 1, 'e': 1}",
+      "filter": "{'a': 2, 'b': 2}",
+      "rs": "2",
+      "k": "'d'",
+      "c": "1",
+      "lineno": 14,
+      "prev_lineno": 15,
+      "next_lineno": 15
+    },
+    {
+      "time": 14,
+      "#": "4",
+      "$": "14",
+      "inp": "'aabbcde'",
+      "count": "{'a': 2, 'b': 2, 'c': 1, 'd': 1, 'e': 1}",
+      "filter": "{'a': 2, 'b': 2}",
+      "rs": "2",
+      "k": "'e'",
+      "c": "1",
+      "lineno": 14,
+      "prev_lineno": 15,
+      "next_lineno": 16
+    }
+  ]
+}

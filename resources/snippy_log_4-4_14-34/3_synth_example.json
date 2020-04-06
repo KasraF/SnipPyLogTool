@@ -1,0 +1,17 @@
+{
+  "varName": "chars",
+  "env": [
+    {
+      "time": 3,
+      "#": "",
+      "$": "",
+      "inp": "'aabbcde'",
+      "count": "{'a': 2, 'b': 2, 'c': 1, 'd': 1, 'e': 1}",
+      "filter": "{'a': 2, 'b': 2}",
+      "chars": "['a', 'b', 'c', 'd', 'e']",
+      "lineno": 13,
+      "prev_lineno": 12,
+      "next_lineno": "R13"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "varName": "filter",
+  "env": [
+    {
+      "time": 2,
+      "#": "",
+      "$": "",
+      "inp": "'aabbcde'",
+      "count": "{'a': 2, 'b': 2, 'c': 1, 'd': 1, 'e': 1}",
+      "filter": "{'a': 2, 'b': 2}",
+      "lineno": 12,
+      "prev_lineno": 11,
+      "next_lineno": "R12"
+    }
+  ]
+}
