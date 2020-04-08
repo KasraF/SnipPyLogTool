@@ -90,16 +90,80 @@ impl LogFile {
     }
 
     pub fn summary(self) -> String {
-        format!(
-			"Total log entries: {}\n\
-			 Total synth calls: {}\n\
+		let mut starts = self.synth_calls.iter().map(|e| &self.entries[*e]);
+		let mut idx_file_duration_lineno_result = Vec::with_capacity(starts.len());
+		let mut successes = self.synth_calls.len();
+
+		for entry in &self.entries {
+			match &entry.event {
+				LogEvent::SynthEnd {index, exit_code, result} => {
+					let start = starts.find(|x| x.event.index().unwrap() == *index).unwrap();
+					let duration = entry.time.signed_duration_since(start.time).num_milliseconds() as f32 / 1000.;
+					
+					if *exit_code == 0 {
+						idx_file_duration_lineno_result.push((index, entry.file_name.clone(), duration, start.event.lineno().unwrap(), result.clone()));
+					} else {
+						idx_file_duration_lineno_result.push((index, entry.file_name.clone(), duration, start.event.lineno().unwrap(), format!("Exit code {}", *exit_code)));
+						successes -= 1;
+					};
+				},
+				_ => ()
+			}
+		}		
+		
+		let mut total_synth_duration = 0.;
+		let mut max_synth_duration = 0.;
+		let mut min_synth_duration = 10000.;
+
+		for line in &idx_file_duration_lineno_result {
+			let dur = &line.2;
+			total_synth_duration += *dur;
+
+			if dur > &max_synth_duration {
+				max_synth_duration = *dur;
+			}
+			if dur < &min_synth_duration {
+				min_synth_duration = *dur;
+			}
+		}
+
+		let average_synth_duration = total_synth_duration as f32 / idx_file_duration_lineno_result.len() as f32;
+		
+        let mut rs = format!(
+			"SnipPy log results:\n\
+			 ---------------------\n\
+			 Total log entries: {}\n\
 			 Programming tasks: {:?}\n\
 			 Total example changes: {}\n\
-			 Default vs. custom focus events: {}",
+			 Default vs. custom focus events: {}\n\
+			 ---------------------\n\n\
+			 Synthesizer results:\n\
+			 ---------------------\n\
+			 Total synth calls: {}\n\
+			 Successful synth calls: {}\n\
+			 Average synth duration: {:.3}\n\
+			 Min     synth duration: {}\n\
+			 Max     synth duration: {}\n\
+			 ---------------------\n\n\
+			 Synthesizer calls:\n\
+			 ----- ---------------- -------- -------- -------------------------------------------------\n\
+			 Index File             Duration Line No. Result\n\
+			 ----- ---------------- -------- -------- -------------------------------------------------\n",
 			self.entries.len(),
-			self.synth_calls.len(),
 			self.files,
 			self.example_changes,
-			self.default_vs_custom_focus)
+			self.default_vs_custom_focus,
+			self.synth_calls.len(),
+			successes,
+			average_synth_duration,
+			min_synth_duration,
+			max_synth_duration
+		);
+
+		for line in idx_file_duration_lineno_result {
+			rs.push_str(&format!("{:5} {:16} {:<8} {:<8} {}\n", line.0, line.1, line.2, line.3, line.4));
+		}
+		
+		rs
     }
 }

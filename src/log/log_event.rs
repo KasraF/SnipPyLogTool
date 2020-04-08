@@ -1,14 +1,14 @@
 #[derive(Debug)]
 pub enum LogEvent {
     SynthStart {
-        index: u32,
+        index: usize,
         line_no: u32,
         example_count: u32,
     },
     SynthOut(String),
     SynthErr(String),
     SynthEnd {
-        index: u32,
+        index: usize,
         exit_code: i32,
         result: String,
     },
@@ -16,24 +16,24 @@ pub enum LogEvent {
     PBFocusCustom(String),
     PBExit,
     ExampleBlur {
-        index: u32,
+        index: usize,
         content: String,
     },
     ExampleFocus {
-        index: u32,
+        index: usize,
         content: String,
     },
     ExampleChanged {
-        index: u32,
+        index: usize,
         before: String,
         after: String,
     },
     ExampleInclude {
-        index: u32,
+        index: usize,
         content: String,
     },
     ExampleExclude {
-        index: u32,
+        index: usize,
         content: String,
     },
     ExampleReset,
@@ -41,6 +41,26 @@ pub enum LogEvent {
 }
 
 impl LogEvent {
+	pub fn index(&self) -> Option<usize> {
+		match self {
+			LogEvent::SynthStart { index, ..} => Some(*index),
+			LogEvent::SynthEnd { index, ..} => Some(*index),
+			LogEvent::ExampleBlur { index, ..} => Some(*index),
+			LogEvent::ExampleFocus { index, ..} => Some(*index),
+			LogEvent::ExampleChanged { index, ..} => Some(*index),
+			LogEvent::ExampleInclude { index, ..} => Some(*index),
+			LogEvent::ExampleExclude { index, ..} => Some(*index),
+			_ => None
+		}
+	}
+
+	pub fn lineno(&self) -> Option<u32> {
+		match self {
+			LogEvent::SynthStart { line_no, ..} => Some(*line_no),
+			_ => None
+		}
+	}
+	
     // TODO This is really ugly.
     pub fn from_str(event_str: &str, content: &str) -> LogEvent {
         let mut split = event_str.split('.');
@@ -57,7 +77,7 @@ impl LogEvent {
                 let subtype = split.next();
                 match subtype {
                     Some("start") => {
-                        let index = split.next().unwrap().parse::<u32>().unwrap();
+                        let index = split.next().unwrap().parse::<usize>().unwrap();
                         let line_no = split.next().unwrap().parse::<u32>().unwrap();
                         let example_count = split.next().unwrap().parse::<u32>().unwrap();
                         LogEvent::SynthStart {
@@ -67,7 +87,7 @@ impl LogEvent {
                         }
                     }
                     Some("end") => {
-                        let index = split.next().unwrap().parse::<u32>().unwrap();
+                        let index = split.next().unwrap().parse::<usize>().unwrap();
                         let exit_code = split.next().unwrap().parse::<i32>().unwrap();
                         LogEvent::SynthEnd {
                             index,
@@ -104,7 +124,7 @@ impl LogEvent {
                     }
                     Some("example") =>
                     {
-                        let index = split.next().unwrap().parse::<u32>().unwrap();
+                        let index = split.next().unwrap().parse::<usize>().unwrap();
                         let subtype = split.next();
                         match subtype {
                             Some("blur") => LogEvent::ExampleBlur { index, content: content.to_owned() },
@@ -129,7 +149,7 @@ impl LogEvent {
                         Some("reset") => LogEvent::ExampleReset,
                         _ => LogEvent::Unknown(event_str.to_owned())
                     }
-                    Some(index_str) => match index_str.parse::<u32>() {
+                    Some(index_str) => match index_str.parse::<usize>() {
                         Ok(index) => match split.next() {
                             Some("change") => {
                                 let mut before_after = content.split(',');
