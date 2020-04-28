@@ -1,32 +1,61 @@
 use crate::log::LogFile;
+use std::fs::DirEntry;
 use std::fs::File;
 use std::path::Path;
+use std::env::args;
 
 mod log;
 
 fn main() -> Result<(), std::io::Error> {
-    let file = get_log()?;
-    let log = LogFile::from_file(file).unwrap();
+    let mut args = args();
+    args.next();
+    let files = match args.next() {
+	Some(arg) => get_logs(Path::new(&arg))?,
+	None => get_logs(Path::new("."))?,
+    };
+    
+    let logs: Vec<LogFile> = files
+        .into_iter()
+        .filter_map(|f| LogFile::from_file(f))
+	.collect();
 
-	println!("{}", log.summary());
-	
+    // Print Summaries
+    logs.iter()
+        .map(|l| l.summary())
+        .for_each(|s| println!("{}", s));
+
+    // Sum examples
     Ok(())
 }
 
-fn get_log() -> Result<File, std::io::Error> {
-    let path_str = std::env::args().nth(1);
-    let path_str = match path_str {
-        Some(p) => p,
-        None => ".".to_owned(),
-    };
+fn get_logs(path: &Path) -> Result<Vec<File>, std::io::Error> {
+    let mut rs;
 
-    let path = Path::new(&path_str);
-    let log_path = if path.is_file() {
-        path.to_path_buf()
+    if path.is_file() {
+	rs = vec!(File::open(path)?);
     } else {
-        path.join(Path::new("snippy.log"))
-    };
+	rs = Vec::new();
+	let curr_dir = path
+            .read_dir()?
+            .filter_map(|e| e.ok())
+            .collect::<Vec<DirEntry>>();
 
-    let log_path = log_path.as_path();
-    File::open(log_path)
+	for entry in &curr_dir {
+            let p_buf = entry.path();
+            let p = p_buf.as_path();
+
+            if p.is_dir() {
+		rs.append(&mut (get_logs(p)?));
+            } else if p
+		.file_name()
+		.expect(&format!("Failed to read file name for path: {:?}", p))
+		.eq("snippy.log")
+            {
+		let f = File::open(p)?;
+		rs.push(f);
+            }
+	}
+    }
+
+    Ok(rs)
 }
